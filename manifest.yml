@@ -1,0 +1,9 @@
+# App Manifest
+applications:
+- name: help-buddy
+  buildpacks: 
+   - https://github.com/cloudfoundry/staticfile-buildpack
+  path: ./dist/help-buddy
+  command: "$HOME/boot.sh"
+  routes:
+    - route: help-buddy.domain.com

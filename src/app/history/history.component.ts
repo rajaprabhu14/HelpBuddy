@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  templateUrl: './history.component.html'
+  templateUrl: "./history.component.html"
 })
 
 export class HistoryComponent implements OnInit {
