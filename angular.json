@@ -27,11 +27,7 @@
               "src/favicon.ico",
               "src/assets",
               "src/manifest.webmanifest",
-              {
-                "glob": "Staticfile",
-                "input": "",
-                "output": "/"
-              }
+              "src/firebase-messaging-sw.js"
             ],
             "styles": [
               "src/styles.scss"

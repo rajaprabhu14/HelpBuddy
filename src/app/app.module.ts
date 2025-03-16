@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './user/login/login.component';
@@ -17,7 +16,16 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ResponseService } from './services/response.service';
 import { UserService } from './services/user.service';
 import { DonationService } from './services/donation.service';
-import { environment } from '../environments/environment';
+import { WelcomeComponent } from './user/welcome/welcome.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { EventEmiterService } from './services/event-emitter.service';
+import { AuthGuardService } from './services/auth-guard.service';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import { MessagingService } from './services/messaging.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +36,8 @@ import { environment } from '../environments/environment';
     NotificationsComponent,
     HistoryComponent,
     UserComponent,
-    DonateComponent
+    DonateComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
@@ -37,9 +46,14 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ModalModule.forRoot(),
+    AngularFireDatabaseModule,
+      AngularFireAuthModule,
+      AngularFireMessagingModule,
+      AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [DonationService, ResponseService, UserService],
+  providers: [DonationService, ResponseService, UserService, EventEmiterService, AuthGuardService, MessagingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
